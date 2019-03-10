@@ -16,4 +16,13 @@ public class RpcResponseFuture {
     private final Condition condition = lock.newCondition();
     private Long requstId;
 
+    public RpcResponseFuture(long id) {
+        this.requstId = id;
+    }
+
+    public byte[] get() {
+        byte[] bytes = Rp
+    }
+
+
 }

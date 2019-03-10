@@ -55,9 +55,9 @@ public class RpcNioMultServer {
                         SocketChannel channel = server.accept();
                         // 设置成非阻塞
                         channel.configureBlocking(false);
-
                         // 在和客户端连接成功之后，为了可以接收到客户端的信息，需要给通道设置读的权限。
                         channel.register(this.selector, SelectionKey.OP_READ);
+
                     } else if (key.isReadable()) {
                         SocketChannel channel = (SocketChannel) key.channel();
                         byte[] bytes = readMsgFromClient(channel);
