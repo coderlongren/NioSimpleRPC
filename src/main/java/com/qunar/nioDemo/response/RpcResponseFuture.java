@@ -9,6 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * @author Sailong Ren
  * @date 19-3-10 下午5:58
+ * 请求数据获取类，用于挂起或者线程或者 唤醒被挂起的线程
  **/
 
 public class RpcResponseFuture {
@@ -24,5 +25,20 @@ public class RpcResponseFuture {
         byte[] bytes = Rp
     }
 
+    public void rpcIsDone() {
+        lock.lock();
+        try {
+            condition.signal();
+        } finally {
+            lock.unlock();
+        }
+    }
 
+    public Long getRequstId() {
+        return requstId;
+    }
+
+    public void setRequstId(Long requstId) {
+        this.requstId = requstId;
+    }
 }

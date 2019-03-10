@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a432a6d-167a-4a61-a3df-a2550a1ccb13" name="Default Changelist" comment="" />
+    <list default="true" id="0a432a6d-167a-4a61-a3df-a2550a1ccb13" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/response/RpcResponseFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/response/RpcResponseFuture.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,14 +57,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/response/RpcResponseFuture.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="11" selection-end-column="4" />
+            <state relative-caret-position="504">
+              <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#497#498#0" expanded="true" />
                 <element signature="e#530#531#0" expanded="true" />
                 <element signature="e#562#563#0" expanded="true" />
                 <element signature="e#594#595#0" expanded="true" />
+                <element signature="e#842#843#0" expanded="true" />
+                <element signature="e#888#889#0" expanded="true" />
+                <element signature="e#928#929#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="465">
+              <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#767#768#0" expanded="true" />
@@ -154,8 +160,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="217" />
-    <option name="y" value="49" />
+    <option name="x" value="112" />
+    <option name="y" value="52" />
     <option name="width" value="1161" />
     <option name="height" value="741" />
   </component>
@@ -244,7 +250,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552231280641" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552232817214" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -282,12 +288,12 @@
       <option name="presentableId" value="Default" />
       <updated>1552211370473</updated>
       <workItem from="1552211373958" duration="703000" />
-      <workItem from="1552214555932" duration="1430000" />
+      <workItem from="1552214555932" duration="2482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2133000" />
+    <option name="totallyTimeSpent" value="3185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="217" y="49" width="1161" height="741" extended-state="0" />
@@ -397,20 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/response/RpcResponseFuture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="11" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#530#531#0" expanded="true" />
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#594#595#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RequstMultObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="74">
@@ -421,10 +413,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/response/RpcResponseFuture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#497#498#0" expanded="true" />
+            <element signature="e#530#531#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#594#595#0" expanded="true" />
+            <element signature="e#842#843#0" expanded="true" />
+            <element signature="e#888#889#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="465">
+          <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#767#768#0" expanded="true" />

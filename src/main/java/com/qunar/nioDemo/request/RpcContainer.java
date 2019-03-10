@@ -23,12 +23,16 @@ public class RpcContainer {
     // 递增的请求ID
     private static volatile AtomicLong requestId = new AtomicLong(0);
 
+    // 获取一个递增的请求ID, AtomicLong CAS保证全局唯一
     public static long getRequestId() {
         return requestId.getAndIncrement();
     }
 
-    public static byte[] addResponse() {
-        RpcResponseFuture responseFuture =
+    public static void addResponse(Long requestId, byte[] responseBody) {
+        responseContainer.put(requestId, responseBody);
+        RpcResponseFuture responseFuture = requestFuture.get(requestId);
+        // 这个RPC调用完成
+        responseFuture.rpcIsDone();
     }
 
 
