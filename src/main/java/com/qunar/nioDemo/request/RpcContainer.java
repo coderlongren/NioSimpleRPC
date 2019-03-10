@@ -35,6 +35,32 @@ public class RpcContainer {
         responseFuture.rpcIsDone();
     }
 
+    public static byte[] getResponse(Long requestId) {
+        return responseContainer.get(requestId);
+    }
+
+    /**
+     *  增加一个 请求对象
+     * @param rpcResponseFuture
+     */
+    public static void addRequestFuture(RpcResponseFuture rpcResponseFuture) {
+        requestFuture.put(rpcResponseFuture.getRequstId(), rpcResponseFuture);
+    }
+
+    /**
+     *  获取请求对象
+     * @param requestId
+     * @return
+     */
+    public static RpcResponseFuture getRequestFuture(Long requestId) {
+        return requestFuture.get(requestId);
+    }
+
+    public static void removeResponseAndFuture(Long requestId) {
+        responseContainer.remove(requestId);
+        requestFuture.remove(requestId);
+    }
+
 
 
 }

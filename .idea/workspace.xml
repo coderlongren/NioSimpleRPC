@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0a432a6d-167a-4a61-a3df-a2550a1ccb13" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/response/RpcResponseFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/response/RpcResponseFuture.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -76,14 +75,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+            <state relative-caret-position="434">
+              <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#767#768#0" expanded="true" />
                 <element signature="e#798#799#0" expanded="true" />
-                <element signature="e#859#860#0" expanded="true" />
-                <element signature="e#909#910#0" expanded="true" />
+                <element signature="e#1180#1181#0" expanded="true" />
+                <element signature="e#1235#1236#0" expanded="true" />
+                <element signature="e#1538#1539#0" expanded="true" />
+                <element signature="e#1579#1580#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -250,7 +251,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552232817214" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552233768339" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -288,15 +289,15 @@
       <option name="presentableId" value="Default" />
       <updated>1552211370473</updated>
       <workItem from="1552211373958" duration="703000" />
-      <workItem from="1552214555932" duration="2482000" />
+      <workItem from="1552214555932" duration="3352000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3185000" />
+    <option name="totallyTimeSpent" value="4055000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="217" y="49" width="1161" height="741" extended-state="0" />
+    <frame x="112" y="52" width="1161" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25379804" />
@@ -432,14 +433,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+        <state relative-caret-position="434">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#767#768#0" expanded="true" />
             <element signature="e#798#799#0" expanded="true" />
-            <element signature="e#859#860#0" expanded="true" />
-            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#1180#1181#0" expanded="true" />
+            <element signature="e#1235#1236#0" expanded="true" />
+            <element signature="e#1538#1539#0" expanded="true" />
+            <element signature="e#1579#1580#0" expanded="true" />
           </folding>
         </state>
       </provider>
