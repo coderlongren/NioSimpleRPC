@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0a432a6d-167a-4a61-a3df-a2550a1ccb13" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/longConnectDemo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/response/RpcResponseFuture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/response/RpcResponseFuture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/server/RpcNioMultServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/server/RpcNioMultServer.java" afterDir="false" />
-    </list>
+    <list default="true" id="0a432a6d-167a-4a61-a3df-a2550a1ccb13" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -76,12 +70,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="40" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+            <state relative-caret-position="360">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#767#768#0" expanded="true" />
                 <element signature="e#798#799#0" expanded="true" />
+                <element signature="e#859#860#0" expanded="true" />
                 <element signature="e#909#910#0" expanded="true" />
               </folding>
             </state>
@@ -249,7 +244,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552230859269" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552231280641" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -287,12 +282,12 @@
       <option name="presentableId" value="Default" />
       <updated>1552211370473</updated>
       <workItem from="1552211373958" duration="703000" />
-      <workItem from="1552214555932" duration="1203000" />
+      <workItem from="1552214555932" duration="1430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1906000" />
+    <option name="totallyTimeSpent" value="2133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="217" y="49" width="1161" height="741" extended-state="0" />
@@ -428,12 +423,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/qunar/nioDemo/request/RpcContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="40" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#767#768#0" expanded="true" />
             <element signature="e#798#799#0" expanded="true" />
+            <element signature="e#859#860#0" expanded="true" />
             <element signature="e#909#910#0" expanded="true" />
           </folding>
         </state>
