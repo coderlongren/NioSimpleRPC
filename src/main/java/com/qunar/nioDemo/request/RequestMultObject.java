@@ -42,4 +42,10 @@ public class RequestMultObject implements Serializable {
      * 参数
      */
     private Object[] args;
+    public RequestMultObject(Class<?> clazz, String methodName, Class<?>[] paramTypes, Object[] args) {
+        this.calzz = clazz;
+        this.methodName = methodName;
+        this.paramTypes = paramTypes;
+        this.args = args;
+    }
 }

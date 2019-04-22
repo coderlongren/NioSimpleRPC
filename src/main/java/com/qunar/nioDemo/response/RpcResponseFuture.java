@@ -1,5 +1,9 @@
 package com.qunar.nioDemo.response;
 
+import com.qunar.nioDemo.request.RpcContainer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -13,18 +17,30 @@ import java.util.concurrent.locks.ReentrantLock;
  **/
 
 public class RpcResponseFuture {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RpcResponseFuture.class);
     private final Lock lock = new ReentrantLock();
     private final Condition condition = lock.newCondition();
     private Long requstId;
 
-    public RpcResponseFuture(long id) {
-        this.requstId = id;
+    public RpcResponseFuture(Long requstId) {
+        this.requstId = requstId;
     }
 
-    // TODO
     public byte[] get() {
-        byte[] bytes = null;
-        return bytes;
+        byte[] bytes = RpcContainer.getResponse(requstId);
+        if (bytes == null || bytes.length < 0) {
+            lock.lock();
+            try {
+                LOGGER.info("请求ID : {}, 请求未返回线程挂起", requstId);
+                condition.await();
+            } catch (InterruptedException e) {
+                LOGGER.error("中断异常, ", e);
+            } finally {
+                lock.unlock();
+            }
+        }
+        LOGGER.info("请求ID : {}, 请求结果返回，线程挂起结束", requstId);
+        return RpcContainer.getResponse(requstId);
     }
 
     public void rpcIsDone() {

@@ -129,7 +129,7 @@ public class RpcNioMultClient {
      * @param bytes
      * @return
      */
-    private boolean sendMessageToServer(byte[] bytes) {
+    public boolean sendMessageToServer(byte[] bytes) {
         if (bytes == null) {
             return false;
         }

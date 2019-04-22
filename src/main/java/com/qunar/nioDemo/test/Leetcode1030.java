@@ -1,8 +1,12 @@
 package com.qunar.nioDemo.test;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.*;
 
 public class Leetcode1030 {
+    private static final Logger log = LoggerFactory.getLogger(Leetcode1030.class);
     public int[][] allCellsDistOrder(int R, int C, int r0, int c0) {
         List<Cell> list = new ArrayList<>();
         for (int i = 0; i < R; i++) {
@@ -32,5 +36,10 @@ public class Leetcode1030 {
             this.r = r;
             this.l = l;
         }
+    }
+
+    public static void main(String[] args) {
+        int i = 0;
+        log.info("aaaa, i = {}", i);
     }
 }
