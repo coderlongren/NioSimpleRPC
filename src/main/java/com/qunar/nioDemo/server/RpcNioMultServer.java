@@ -21,22 +21,22 @@ import java.util.Iterator;
  * @date 19-3-15 下午3:02
  **/
 public class RpcNioMultServer {
-    private static final Logger log = LoggerFactory.getLogger(RpcNioMultServer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RpcNioMultServer.class);
     // 通道管理器
     private Selector selector;
 
-    public static void startServer() {
+    public void startServer() {
         RpcNioMultServer server = new RpcNioMultServer();
         try {
             server.initServer(8080);
         } catch (IOException e) {
-            log.error("初始化异常", e);
+            LOGGER.error("初始化异常", e);
         }
         server.listen();
     }
 
     private void listen() {
-        log.info("服务端启动成功");
+        LOGGER.info("服务端启动成功");
         // 轮训访问 selector
         while (true) {
             try {
@@ -70,7 +70,7 @@ public class RpcNioMultServer {
 
                 }
             } catch (IOException e) {
-                log.error("异常", e);
+                LOGGER.error("异常", e);
             }
         }
 
@@ -95,7 +95,7 @@ public class RpcNioMultServer {
     }
 
     /**
-     *  从client端读
+     *  从client端读, 如果读取错误， 返回null
      * @param channel
      * @return
      */
@@ -117,7 +117,7 @@ public class RpcNioMultServer {
             }
             return byteBuffer.array();
         } catch (IOException e) {
-            log.error("读取数据异常", e);
+            LOGGER.error("读取数据异常", e);
             return null;
         }
     }

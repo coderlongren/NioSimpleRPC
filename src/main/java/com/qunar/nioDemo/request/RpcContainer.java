@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
  *
  * @author Sailong Ren
  * @date 19-3-10 下午5:58
- *  RPC容器，存储发送RPC请求时的请求对象，以及对应的返回值
+ * RPC容器，存储发送RPC请求时的请求对象，以及对应的返回值
  **/
 public class RpcContainer {
     // 存储请求对象的容器
@@ -40,7 +40,8 @@ public class RpcContainer {
     }
 
     /**
-     *  增加一个 请求对象
+     * 增加一个 请求对象
+     *
      * @param rpcResponseFuture
      */
     public static void addRequestFuture(RpcResponseFuture rpcResponseFuture) {
@@ -48,7 +49,8 @@ public class RpcContainer {
     }
 
     /**
-     *  获取请求对象
+     * 获取请求对象
+     *
      * @param requestId
      * @return
      */
@@ -60,7 +62,6 @@ public class RpcContainer {
         responseContainer.remove(requestId);
         requestFuture.remove(requestId);
     }
-
 
 
 }

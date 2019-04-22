@@ -1,19 +1,19 @@
 package com.qunar.nioDemo.util;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
 
 /**
  * Copyright (C) XXXX.com - All Rights Reserved.
  *
  * @author Sailong Ren
  * @date 19-3-10 下午2:59
- *  序列化的工具类
+ *  序列化的工具类, 提供简单的序列化和反序列化
  **/
 public class SerializeUtil {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SerializeUtil.class);
     public static byte[] serialize(Object obj) {
         try {
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -23,8 +23,7 @@ public class SerializeUtil {
             byte[] bytes = bos.toByteArray();
             return bytes;
         } catch (IOException e) {
-            System.out.println("序列化对象出错！");
-            e.printStackTrace();
+            LOGGER.error("序列化失败,", e);
             return null;
         }
     }
@@ -34,13 +33,11 @@ public class SerializeUtil {
             ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
             ObjectInputStream ois = new ObjectInputStream(bis);
             return ois.readObject();
-        } catch (IOException e) {
-            System.out.println("反序列化出错！");
-            e.printStackTrace();
+        } catch (IOException ioException) {
+            LOGGER.error("反序列化异常, ", ioException);
             return null;
         } catch (ClassNotFoundException e) {
-            System.out.println("反序列化出错！");
-            e.printStackTrace();
+            LOGGER.error("反序列化异常", e);
             return null;
         }
     }

@@ -2,6 +2,7 @@ package com.qunar.nioDemo.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -13,7 +14,9 @@ import java.io.Serializable;
  **/
 @Data
 @AllArgsConstructor
-public class RequstMultObject implements Serializable {
+@NoArgsConstructor
+// 请求参数
+public class RequestMultObject implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**

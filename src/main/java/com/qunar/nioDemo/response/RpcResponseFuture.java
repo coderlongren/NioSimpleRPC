@@ -21,8 +21,10 @@ public class RpcResponseFuture {
         this.requstId = id;
     }
 
+    // TODO
     public byte[] get() {
-        byte[] bytes = Rp
+        byte[] bytes = null;
+        return bytes;
     }
 
     public void rpcIsDone() {
