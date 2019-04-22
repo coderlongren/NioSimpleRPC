@@ -39,20 +39,21 @@ public class RpcNioMultServerTask implements Runnable {
         if (bytes != null && bytes.length > 0 && channel != null) {
             // 反序列化得到对象
             RequestMultObject requestMultObject = (RequestMultObject) SerializeUtil.unSerialize(bytes);
+            LOGGER.info("序列化拿到了对象 ： ", requestMultObject.toString());
             requestHandler(requestMultObject, channel);
         }
     }
 
     // 通过远程字节码 执行method
     private void requestHandler(RequestMultObject requestMultObject, SocketChannel channel) {
-        long requestId = requestMultObject.getRequestId();
+        Long requestId = requestMultObject.getRequestId();
         Object obj = BeanContainer.getBean(requestMultObject.getCalzz());
         String methodName = requestMultObject.getMethodName();
         Class<?>[] parameterTypes = requestMultObject.getParamTypes();
-        Object[] arguments = requestMultObject.getArgs();
+        Object[] args = requestMultObject.getArgs();
         try {
             Method method = obj.getClass().getMethod(methodName, parameterTypes);
-            String result = (String) method.invoke(obj, arguments);
+            String result = (String) method.invoke(obj, args);
             byte[] bytes = SerializeUtil.serialize(result);
             // requestID long 8 byte, 消息长度int 4 byte
             ByteBuffer buffer = ByteBuffer.allocate(bytes.length + 12);

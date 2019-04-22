@@ -11,7 +11,7 @@ public class BeanContainer {
      * @param c 目标类的字节码
      * @param o 目标对象
      */
-    public static boolean addBean(final Class<?> c, final Object o) {
+    public static boolean addBean(Class<?> c, Object o) {
         container.put(c, o);
         return true;
     }
@@ -19,10 +19,10 @@ public class BeanContainer {
     /**
      * 从容器获取服务
      *
-     * @param c 字节码±
+     * @param c 字节码
      * @return
      */
-    public static Object getBean(final Class<?> c) {
+    public static Object getBean(Class<?> c) {
         return container.get(c);
     }
 }

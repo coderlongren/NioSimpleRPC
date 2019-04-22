@@ -12,7 +12,7 @@ public class RpcNioProvide {
     public static void main(String[] args) {
         HelloService helloService = new HelloServiceImpl();
         // 需要暴露的服务放入到容器中
-        BeanContainer.addBean(helloService.getClass(), helloService);
+        BeanContainer.addBean(HelloService.class, helloService);
         startMultiNioServer();
     }
 

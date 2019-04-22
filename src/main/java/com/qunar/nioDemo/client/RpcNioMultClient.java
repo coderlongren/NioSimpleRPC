@@ -71,7 +71,7 @@ public class RpcNioMultClient {
                 while (iterator.hasNext()) {
                     SelectionKey item = iterator.next();
                     iterator.remove();
-                    LOGGER.info("get a SelectionKey is {}", item);
+//                    LOGGER.info("get a SelectionKey is {}", item.);
                     if (item.isReadable()) {
                         // 可读
                         readMessageFromRemote();
