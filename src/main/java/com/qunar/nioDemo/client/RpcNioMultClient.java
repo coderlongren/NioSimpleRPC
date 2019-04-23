@@ -60,7 +60,7 @@ public class RpcNioMultClient {
     }
 
     /**
-     *  单线程，轮训selector
+     * 单线程，轮训selector
      */
     private void listen() {
         try {
@@ -125,7 +125,8 @@ public class RpcNioMultClient {
     }
 
     /**
-     *  发送消息给server
+     * 发送消息给server
+     *
      * @param bytes
      * @return
      */
@@ -150,13 +151,16 @@ public class RpcNioMultClient {
     }
 
     /**
-     *  双检锁的单例
+     * 双检锁的单例
+     *
      * @return
      */
     public static RpcNioMultClient getInstance() {
         if (rpcNioClient == null) {
             synchronized (RpcNioMultClient.class) {
-                rpcNioClient = new RpcNioMultClient();
+                if (rpcNioClient == null) {
+                    rpcNioClient = new RpcNioMultClient();
+                }
             }
         }
         return rpcNioClient;

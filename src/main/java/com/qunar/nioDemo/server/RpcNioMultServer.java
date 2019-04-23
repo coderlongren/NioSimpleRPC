@@ -50,6 +50,7 @@ public class RpcNioMultServer {
                     iterator.remove();
                     // 客户端请求连接
                     if (key.isAcceptable()) {
+                        LOGGER.info("获得了一个连接好的事件");
                         ServerSocketChannel server = (ServerSocketChannel) key.channel();
                         // 获得和客户端连接的通道
                         SocketChannel channel = server.accept();
@@ -59,6 +60,7 @@ public class RpcNioMultServer {
                         channel.register(this.selector, SelectionKey.OP_READ);
 
                     } else if (key.isReadable()) {
+                        LOGGER.info("获得了一个可读的事件");
                         SocketChannel channel = (SocketChannel) key.channel();
                         byte[] bytes = readMsgFromClient(channel);
                         if (bytes != null && bytes.length > 0) {

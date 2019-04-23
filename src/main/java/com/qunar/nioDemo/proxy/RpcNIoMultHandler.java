@@ -16,6 +16,7 @@ public class RpcNIoMultHandler implements InvocationHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcNIoMultHandler.class);
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        long startTime = System.currentTimeMillis();
         // 获得请求id
         Long responseId = RpcContainer.getRequestId();
         // 封装请求对象
@@ -33,7 +34,7 @@ public class RpcNIoMultHandler implements InvocationHandler {
         RpcNioMultClient rpcNioMultClient = RpcNioMultClient.getInstance();
         rpcNioMultClient.sendMessageToServer(requstBytes);
 
-        // 从ResponseContainer获取返回值
+        // 从ResponseContainer获取返回值, 如果远程没有执行完，线程阻塞
         byte[] responseBytes = rpcResponseFuture.get();
         if (requstBytes != null) {
             RpcContainer.removeResponseAndFuture(responseId);
@@ -41,7 +42,8 @@ public class RpcNIoMultHandler implements InvocationHandler {
 
         // 反序列化获得结果
         Object result = SerializeUtil.unSerialize(responseBytes);
-        System.out.println("请求id：" + responseId + " 结果：" + result);
+        long endTime = System.currentTimeMillis();
+        LOGGER.info("请求id：{}, 结果：{}, 整体耗时 : {}", requestMultObject.getRequestId(), (String)result, endTime - startTime);
         return result;
     }
 }
