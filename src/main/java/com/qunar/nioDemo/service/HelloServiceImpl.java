@@ -18,7 +18,8 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public String sayHello(String name) {
         try {
-            TimeUnit.SECONDS.sleep(1);
+            // 模仿阻塞一秒
+            TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             LOGGER.error("中断, ", e);
         }
