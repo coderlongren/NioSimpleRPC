@@ -1,5 +1,7 @@
 package com.qunar.nioDemo.server;
 
+import com.google.common.collect.Lists;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -13,7 +15,6 @@ public class TestServer {
         Method method = clazz.getDeclaredMethod("test", String.class);
 //        Class<?> paramTypes =
         method.invoke(new TestServer(), "aa");
-
     }
     public void test(String a) {
         System.out.println("test");

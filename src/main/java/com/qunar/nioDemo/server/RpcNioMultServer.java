@@ -8,11 +8,9 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Copyright (C) XXX.com - All Rights Reserved.
@@ -24,6 +22,8 @@ public class RpcNioMultServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcNioMultServer.class);
     // 通道管理器
     private Selector selector;
+    private static AtomicInteger atomicInteger = new AtomicInteger(1);
+    private Channel tempChannel;
 
     public void startServer() {
         RpcNioMultServer server = new RpcNioMultServer();
@@ -44,6 +44,7 @@ public class RpcNioMultServer {
                 selector.select();
                 // 获取事件迭代器
                 Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
+                Channel tempChannel = null;
                 while (iterator.hasNext()) {
                     SelectionKey key = iterator.next();
                     // 防止重复选取这个key
@@ -54,14 +55,25 @@ public class RpcNioMultServer {
                         ServerSocketChannel server = (ServerSocketChannel) key.channel();
                         // 获得和客户端连接的通道
                         SocketChannel channel = server.accept();
+                        // 接收到的一次客户端 写数据channel
+//                        tempChannel = channel;
+                        System.out.println(tempChannel + ": ++++++++++++++++++++++++++++++");
                         // 设置成非阻塞
                         channel.configureBlocking(false);
                         // 在和客户端连接成功之后，为了可以接收到客户端的信息，需要给通道设置读的权限。
                         channel.register(this.selector, SelectionKey.OP_READ);
 
-                    } else if (key.isReadable()) {
+                    }
+                    if (key.isReadable()) {
                         LOGGER.info("获得了一个可读的事件");
+
                         SocketChannel channel = (SocketChannel) key.channel();
+                        if (tempChannel == null) {
+                            tempChannel = channel;
+                        }
+                        if (tempChannel == channel) {
+                            LOGGER.info("获取到的 读事件" + atomicInteger.getAndIncrement() + ": ++++++++++++++++++++++++++++++");
+                        }
                         byte[] bytes = readMsgFromClient(channel);
                         if (bytes != null && bytes.length > 0) {
                             // 读取之后将任务放入线程池异步返回
@@ -79,7 +91,8 @@ public class RpcNioMultServer {
     }
 
     /**
-     *  获得一个ServerSocket通道，并对该通道做一些初始化的工作
+     * 获得一个ServerSocket通道，并对该通道做一些初始化的工作
+     *
      * @param port
      */
     public void initServer(int port) throws IOException {
@@ -97,7 +110,8 @@ public class RpcNioMultServer {
     }
 
     /**
-     *  从client端读, 如果读取错误， 返回null
+     * 从client端读, 如果读取错误， 返回null
+     *
      * @param channel
      * @return
      */

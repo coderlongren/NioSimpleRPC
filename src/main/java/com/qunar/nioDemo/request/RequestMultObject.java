@@ -12,7 +12,6 @@ import java.io.Serializable;
  * @author Sailong Ren
  * @date 19-3-10 下午5:54
  **/
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 // 请求参数
@@ -52,5 +51,45 @@ public class RequestMultObject implements Serializable {
     @Override
     public String toString() {
         return "requestId" + requestId +  ", mathod : " + methodName + ", paramtypes : " + paramTypes + ", args : " + args + " \n";
+    }
+
+    public Long getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(Long requestId) {
+        this.requestId = requestId;
+    }
+
+    public Class<?> getCalzz() {
+        return calzz;
+    }
+
+    public void setCalzz(Class<?> calzz) {
+        this.calzz = calzz;
+    }
+
+    public String getMethodName() {
+        return methodName;
+    }
+
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
+    }
+
+    public Class<?>[] getParamTypes() {
+        return paramTypes;
+    }
+
+    public void setParamTypes(Class<?>[] paramTypes) {
+        this.paramTypes = paramTypes;
+    }
+
+    public Object[] getArgs() {
+        return args;
+    }
+
+    public void setArgs(Object[] args) {
+        this.args = args;
     }
 }

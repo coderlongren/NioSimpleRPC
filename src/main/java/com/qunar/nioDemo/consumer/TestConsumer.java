@@ -43,7 +43,7 @@ public class TestConsumer {
 
     private static void accept(CompletableFuture item) {
         try {
-            item.get(2, TimeUnit.SECONDS);
+            item.get(7, TimeUnit.SECONDS);
 //            coutDownLatch.countDown();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();

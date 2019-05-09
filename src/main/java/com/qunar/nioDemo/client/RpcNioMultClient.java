@@ -12,11 +12,12 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class RpcNioMultClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcNioMultClient.class);
     private static volatile RpcNioMultClient rpcNioClient;
-
+    private static AtomicInteger atomicInteger = new AtomicInteger(1);
     // 通道管理器
     private Selector selector;
 
@@ -88,6 +89,7 @@ public class RpcNioMultClient {
      * 读取
      */
     private void readMessageFromRemote() {
+        System.out.println("获取到了一次读事件" + atomicInteger.getAndIncrement());
         // 8byte 的requestID
         ByteBuffer byteBuffer = null;
         try {
