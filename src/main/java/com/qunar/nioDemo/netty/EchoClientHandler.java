@@ -32,8 +32,7 @@ public class EchoClientHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf = (ByteBuf) msg;
         byte[] bytes = new byte[byteBuf.readableBytes()];
-        byteBuf.writeBytes(bytes);
-        LOGGER.info("msg: {} {}", byteBuf, bytes);
+        byteBuf.readBytes(bytes);
         String receivedMsg = new String(bytes, "UTF-8");
         LOGGER.info("received message from server : {}", receivedMsg);
     }

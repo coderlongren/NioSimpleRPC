@@ -11,6 +11,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
+import java.util.concurrent.CompletableFuture;
+
 
 public class EchoServer {
     private final int port;
@@ -25,9 +27,11 @@ public class EchoServer {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap(); // (2)
+            // SO_BACKLOG 是 TCP accept queue 的大小， 系统会取somaxconn和SO_BACKLOG的最小值来作为Accept Queue的大小，
+            // 所以如果想调大这个参数，必须调整两个参数的大小
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class) // (3)
-                    .option(ChannelOption.SO_BACKLOG, 1024)
+                    .option(ChannelOption.SO_BACKLOG, 512)
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() { // (4)
                         @Override

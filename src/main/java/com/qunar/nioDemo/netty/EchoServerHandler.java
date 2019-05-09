@@ -18,13 +18,17 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
         byte[] bytes = new byte[buf.readableBytes()];
         buf.readBytes(bytes);
         String receivedMsg = new String(bytes, "UTF-8");
-        LOGGER.info("server received message  : {}", receivedMsg);
-        String responseStr = System.currentTimeMillis() + " from server";
-        LOGGER.info("服务端需要返回的 : {}", responseStr);
-        byte[] resBytes = responseStr.getBytes();
-        ByteBuf responseBuf = Unpooled.buffer(resBytes.length);
-        responseBuf.writeBytes(resBytes);
-        ctx.write(responseBuf);
+        if (receivedMsg.equals("Hello")) {
+            LOGGER.info("server received message  : {}", receivedMsg);
+            String responseStr = System.currentTimeMillis() + " from server";
+            LOGGER.info("服务端需要返回的 : {}", responseStr);
+            byte[] resBytes = responseStr.getBytes();
+            ByteBuf responseBuf = Unpooled.buffer(resBytes.length);
+            responseBuf.writeBytes(resBytes);
+            ctx.write(responseBuf);
+        } else {
+
+        }
     }
 
     @Override
