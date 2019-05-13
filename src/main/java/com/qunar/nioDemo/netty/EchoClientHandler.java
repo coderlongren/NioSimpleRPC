@@ -21,6 +21,7 @@ public class EchoClientHandler extends ChannelInboundHandlerAdapter {
         byte[] bytes = msg.getBytes();
         messageBuf = Unpooled.buffer(bytes.length);
         messageBuf.writeBytes(bytes);
+        new Thread().start();
     }
 
     @Override
