@@ -14,7 +14,7 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         for (int i = 0; i < 100; i++) {
-            req = (i + " QUERY TIME SERVER; ").getBytes();
+            req = (i + " QUERY TIME SERVER; \n").getBytes();
             ByteBuf byteBuf = Unpooled.buffer(req.length);
             byteBuf.writeBytes(req);
             ctx.writeAndFlush(byteBuf);
@@ -24,10 +24,13 @@ public class TCPClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf byteBuf = (ByteBuf) msg;
-        byte[] bytes = new byte[byteBuf.readableBytes()];
-        byteBuf.readBytes(bytes);
-        String receivedMsg = new String(bytes, "UTF-8");
+        // 1
+//        ByteBuf byteBuf = (ByteBuf) msg;
+//        byte[] bytes = new byte[byteBuf.readableBytes()];
+//        byteBuf.readBytes(bytes);
+//        String receivedMsg = new String(bytes, "UTF-8");
+        // 2
+        String receivedMsg = (String) msg;
         LOGGER.info("received message from server : {}", receivedMsg);
     }
 

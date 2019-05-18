@@ -12,12 +12,16 @@ public class TCPServerHandler extends ChannelInboundHandlerAdapter {
     private static final Logger LOGGER = LoggerFactory.getLogger(TCPServerHandler.class);
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf) msg;
-        byte[] bytes = new byte[buf.readableBytes()];
-        buf.readBytes(bytes);
-        String receivedMsg = new String(bytes, "UTF-8");
+        // 1
+//        ByteBuf buf = (ByteBuf) msg;
+//        byte[] bytes = new byte[buf.readableBytes()];
+//        buf.readBytes(bytes);
+//        String receivedMsg = new String(bytes, "UTF-8");
+        // 2
+
+        String receivedMsg = (String) msg;
         LOGGER.info("服务端接收到请求 : " + receivedMsg + "order is " + count++);
-        String resStr = System.currentTimeMillis() + "from remote server ";
+        String resStr = System.currentTimeMillis() + "from remote server \n";
         ByteBuf resBuf = Unpooled.copiedBuffer(resStr.getBytes());
         ctx.writeAndFlush(resBuf);
     }

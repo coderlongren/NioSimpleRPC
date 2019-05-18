@@ -8,6 +8,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
@@ -31,11 +33,15 @@ public class EchoServer {
             // 所以如果想调大这个参数，必须调整两个参数的大小
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class) // (3)
-                    .option(ChannelOption.SO_BACKLOG, 512)
+                    .option(ChannelOption.SO_BACKLOG, 1024)
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() { // (4)
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
+                            // 换行符处理器
+                            ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
+                            // 字符串处理器
+                            ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(
                                     //new LoggingHandler(LogLevel.INFO),
                                     new TCPServerHandler());
