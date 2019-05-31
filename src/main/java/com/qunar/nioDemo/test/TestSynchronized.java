@@ -1,5 +1,9 @@
 package com.qunar.nioDemo.test;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class TestSynchronized {
     private final static Object object = new Object();
     private Object o1 = new Object();
@@ -12,6 +16,7 @@ public class TestSynchronized {
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
+
                 }
             }
         }
@@ -28,6 +33,7 @@ public class TestSynchronized {
             }
         }
     }
+
     public void minu3() {
         synchronized (this) {
             int count = 5;
@@ -42,5 +48,22 @@ public class TestSynchronized {
         }
     }
 
+    public static void main(String[] args) throws InterruptedException {
+        Lock lock = new ReentrantLock();
+        Condition oneCondition = lock.newCondition();
+        Condition twoCondition = lock.newCondition();
+        lock.lock();
+        new Thread(() -> {
+            for (;;) {
+                try {
+                    System.out.println("join");
+                    Thread.currentThread().join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "my threadOne").start();
+        oneCondition.await();
+    }
 
 }
