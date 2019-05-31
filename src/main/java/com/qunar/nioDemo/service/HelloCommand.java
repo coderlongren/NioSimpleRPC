@@ -39,4 +39,12 @@ public class HelloCommand extends HystrixCommand<String> {
     protected String run() throws Exception {
         return service.sayHello(name);
     }
+
+    /**
+     *  降级策略
+     * @return
+     */
+    private String fallback() {
+        return "Sorry ! The service you visited has been lost 。";
+    }
 }

@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
  **/
 public class HelloServiceImpl implements HelloService {
     private static final Logger LOGGER = LoggerFactory.getLogger(HelloServiceImpl.class);
+
     @Override
     public String sayHello(String name) {
         try {
